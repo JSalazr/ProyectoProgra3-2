@@ -233,3 +233,119 @@
 1443387526 source:/home/segebre/Desktop/hackathon2015 (copy)/WaterBarrier.cpp
 	"WaterBarrier.h"
 
+1442275946 source:/home/segebre/Desktop/ProyectoProgra3/Box.cpp
+	"Box.h"
+
+1442275946 /home/segebre/Desktop/ProyectoProgra3/Box.h
+
+1443389574 source:/home/segebre/Desktop/ProyectoProgra3/Clean.cpp
+	"Clean.h"
+	"obstaculos.h"
+	"Box.h"
+
+1442275946 /home/segebre/Desktop/ProyectoProgra3/Clean.h
+	"obstaculos.h"
+	"Entidad.h"
+
+1443389574 /home/segebre/Desktop/ProyectoProgra3/obstaculos.h
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"Entidad.h"
+
+1443391464 /home/segebre/Desktop/ProyectoProgra3/Entidad.h
+	"Box.h"
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<vector>
+
+1443316622 source:/home/segebre/Desktop/ProyectoProgra3/Enemy.cpp
+	"Enemy.h"
+	"obstaculos.h"
+	<vector>
+	"Box.h"
+
+1443312020 /home/segebre/Desktop/ProyectoProgra3/Enemy.h
+	"obstaculos.h"
+
+1443299207 source:/home/segebre/Desktop/ProyectoProgra3/Entidad.cpp
+	"Entidad.h"
+
+1442275946 source:/home/segebre/Desktop/ProyectoProgra3/FloatingObs.cpp
+	"FloatingObs.h"
+	"obstaculos.h"
+	"Box.h"
+
+1442275946 /home/segebre/Desktop/ProyectoProgra3/FloatingObs.h
+	"obstaculos.h"
+
+1443389574 source:/home/segebre/Desktop/ProyectoProgra3/lives.cpp
+	"lives.h"
+	"obstaculos.h"
+	"Box.h"
+
+1442275946 /home/segebre/Desktop/ProyectoProgra3/lives.h
+	"obstaculos.h"
+
+1443300465 source:/home/segebre/Desktop/ProyectoProgra3/obstaculos.cpp
+	"obstaculos.h"
+
+1443301072 source:/home/segebre/Desktop/ProyectoProgra3/Personaje.cpp
+	"Personaje.h"
+
+1443391464 /home/segebre/Desktop/ProyectoProgra3/Personaje.h
+	"Box.h"
+	"Entidad.h"
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<vector>
+	<map>
+
+1443387526 source:/home/segebre/Desktop/ProyectoProgra3/WaterBarrier.cpp
+	"WaterBarrier.h"
+
+1443341890 /home/segebre/Desktop/ProyectoProgra3/WaterBarrier.h
+	"obstaculos.h"
+
+1443395247 source:/home/segebre/Desktop/ProyectoProgra3/FireBarrier.cpp
+	"FireBarrier.h"
+
+1443395216 /home/segebre/Desktop/ProyectoProgra3/FireBarrier.h
+	"obstaculos.h"
+
+1443395769 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	"coins.h"
+	"lives.h"
+	"obstaculos.h"
+	"Entidad.h"
+	"Personaje.h"
+	"FloatingObs.h"
+	"Enemy.h"
+	"WaterBarrier.h"
+	"FireBarrier.h"
+	<unistd.h>
+	<sstream>
+
+1442275946 /home/segebre/Desktop/ProyectoProgra3/coins.h
+	"obstaculos.h"
+

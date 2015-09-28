@@ -328,18 +328,7 @@ int main()
     btninst1 = al_load_bitmap("resources/insctructions1.png");
     instrucciones = al_load_bitmap("resources/instrucciones.png");
     scores_s = al_load_bitmap("resources/scores_s.png");
-    optionSound = al_load_sample("resources/option.wav");
-    levelUp = al_load_sample("resources/levelup.wav");
-    keyType = al_load_sample("resources/keytype.wav");
-    optionSoundInstance = al_create_sample_instance(optionSound);
-    levelUpInstance = al_create_sample_instance(levelUp);
-    keyTypeInstance = al_create_sample_instance(keyType);
-    al_set_sample_instance_playmode(optionSoundInstance, ALLEGRO_PLAYMODE_ONCE);
-    al_set_sample_instance_playmode(levelUpInstance, ALLEGRO_PLAYMODE_ONCE);
-    al_set_sample_instance_playmode(keyTypeInstance, ALLEGRO_PLAYMODE_ONCE);
-    al_attach_sample_instance_to_mixer(optionSoundInstance, al_get_default_mixer());
-    al_attach_sample_instance_to_mixer(levelUpInstance, al_get_default_mixer());
-    al_attach_sample_instance_to_mixer(keyTypeInstance, al_get_default_mixer());
+
 
     int nivel = 1;
     bool lvlup = 1;
@@ -403,13 +392,11 @@ int main()
                 {
                     splash1=false;
                     splash2=true;
-		    al_play_sample_instance(optionSoundInstance);
                 }
             }
             if(splash2)
             {
                menuin();
-	       al_play_sample_instance(optionSoundInstance);
             }
              if(inst_m){
 

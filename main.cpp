@@ -379,7 +379,6 @@ int main()
 
 
 
-    Highscores *high=new Highscores();
     while(true)
     {
         bool get_event = al_wait_for_event_until(event_queue, &ev, &timeout);

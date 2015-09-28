@@ -50,6 +50,7 @@ ALLEGRO_BITMAP  *btninst   = NULL;
 ALLEGRO_BITMAP  *btninst1   = NULL;
 ALLEGRO_BITMAP  *btnabout   = NULL;
 ALLEGRO_BITMAP  *btnabout1  = NULL;
+ALLEGRO_BITMAP  *splashabout   = NULL;
 ALLEGRO_BITMAP  *instrucciones   = NULL;
 ALLEGRO_BITMAP  *scores_s   = NULL;
 ALLEGRO_SAMPLE* optionSound = NULL;
@@ -77,7 +78,7 @@ ALLEGRO_FONT *normalFont = NULL;
 int width = 768, height = 1000, FPS = 30, seconds=1, timer2=0, moveSpeed=5,moveSpeedB1=1, moveSpeedB2=3, menuopt=1, pauseopt=1;
 string currentuser="hola";
 int bg1=0, bg2=0;
-bool izq=false, der=false, splash1=true, splash2= false, pausa_m=false, inst_m=false, scores_m=false;
+bool izq=false, der=false, splash1=true, splash2= false, pausa_m=false, inst_m=false, scores_m=false, about_m=false;
 
 bool collision(Entidad* e, Entidad* a);
 
@@ -293,7 +294,10 @@ void menuin(){
         al_draw_bitmap(btnexit, 200, 760, 100);
         al_draw_bitmap(btnabout1, 200, 900, 100);
         //al_play_sample_instance(optionSoundInstance);
-
+         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        {
+            about_m=true;
+        }
     }
 
 
@@ -304,14 +308,14 @@ void pausein(){
         if(press(ALLEGRO_KEY_DOWN))
         {
             pauseopt++;
-            //al_play_sample_instance(optionSoundInstance);
+            al_play_sample_instance(optionSoundInstance);
             if(pauseopt>3)
                 pauseopt=2;
         }
         if(press(ALLEGRO_KEY_UP))
         {
             pauseopt--;
-            //al_play_sample_instance(optionSoundInstance);
+            al_play_sample_instance(optionSoundInstance);
             if(pauseopt<1)
                 pauseopt=1;
         }
@@ -364,6 +368,7 @@ int main()
     btnabout1 = al_load_bitmap("resources/about1.png");
     instrucciones = al_load_bitmap("resources/instrucciones.png");
     scores_s = al_load_bitmap("resources/scores_s.png");
+    splashabout = al_load_bitmap("resources/splashabout.png");
     optionSound = al_load_sample("resources/option.wav");
     levelUp = al_load_sample("resources/levelup.wav");
     keyType = al_load_sample("resources/keytype.wav");
@@ -450,14 +455,14 @@ int main()
                     splash1=false;
                     splash2=true;
 
-		    al_play_sample_instance(optionSoundInstance);
+//		    al_play_sample_instance(optionSoundInstance);
                 }
             }
             if(splash2)
             {
                menuin();
 
-	       al_play_sample_instance(optionSoundInstance);
+//	       al_play_sample_instance(optionSoundInstance);
             }
              if(inst_m){
                 al_draw_bitmap(instrucciones, 0, 0, 100);
@@ -466,30 +471,59 @@ int main()
             }
              if(scores_m){
                 al_draw_bitmap(scores_s, 0, 0, 100);
+                int lug=high->highs.size();
+                int pos=200*lug;
+                if(lug>=12){
+                    lug==12;
+                    pos=70*lug;
+                }
                 for(multimap<int,string>::iterator i = high->highs.begin();
                     i!=high->highs.end();
                     i++)
                     {
-                        if(high->highs.size()>3){
+
+                        if(high->highs.size()>=12){
                             if(cont>=high->highs.size()-12 && cont<high->highs.size())
                             {
                                 displayScores.str("");
                                 displayScores.clear();
-                                displayScores << (*i).second << (*i).first;
-                                al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTRE, displayScores.str().c_str());
+                                displayScores << (*i).second <<"                  "<< (*i).first;
+                                al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, pos,ALLEGRO_ALIGN_CENTRE, displayScores.str().c_str());
                                 cout<<(*i).first<<","<<(*i).second<<endl;
                             }
+                            pos-=40;
                             cont++;
+                            if(cont>high->highs.size())
+                                cont=0;
+                            if(lug==0)
+                                lug=12;
                         }
                         else
                         {
+                                                        //lug=high->highs.size();
                             if(cont<high->highs.size())
+                            {
+                                displayScores.str("");
+                                displayScores.clear();
+                                displayScores << (*i).second <<"                  "<< (*i).first;
+                                al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, pos,ALLEGRO_ALIGN_CENTRE, displayScores.str().c_str());
                                 cout<<(*i).first<<","<<(*i).second<<endl;
+                            }
                             cont++;
+                            pos-=40;
+                                if(cont>high->highs.size())
+                                    cont=0;
+                                if(lug==0)
+                                lug=high->highs.size();
                         }
                     }
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 scores_m=false;
+            }
+            if(about_m){
+                al_draw_bitmap(splashabout,0,0,100);
+                if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
+                about_m=false;
             }
         }
 
@@ -497,7 +531,7 @@ int main()
         {
             if(restart)
             {
-                high->highs.insert(pair<int, string>(nivel, currentuser));
+                high->highs.insert(pair<int, string>(nivel-1, currentuser));
                 patitos.clear();
                 patitos.insert(patitos.begin(), personaje);
                 menuopt=1;

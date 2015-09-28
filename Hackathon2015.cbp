@@ -44,6 +44,8 @@
 		<Unit filename="FireBarrier.h" />
 		<Unit filename="FloatingObs.cpp" />
 		<Unit filename="FloatingObs.h" />
+		<Unit filename="GroundBarrier.cpp" />
+		<Unit filename="GroundBarrier.h" />
 		<Unit filename="KeypressEvent.h" />
 		<Unit filename="Personaje.cpp" />
 		<Unit filename="Personaje.h" />

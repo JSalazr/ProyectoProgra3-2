@@ -349,3 +349,9 @@
 1442275946 /home/segebre/Desktop/ProyectoProgra3/coins.h
 	"obstaculos.h"
 
+1443397741 source:/home/segebre/Desktop/ProyectoProgra3/GroundBarrier.cpp
+	"GroundBarrier.h"
+
+1443397741 /home/segebre/Desktop/ProyectoProgra3/GroundBarrier.h
+	"obstaculos.h"
+

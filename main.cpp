@@ -17,6 +17,7 @@
 #include "Enemy.h"
 #include "WaterBarrier.h"
 #include "FireBarrier.h"
+#include "GroundBarrier.h"
 #include <unistd.h>
 #include <sstream>
 
@@ -303,7 +304,7 @@ int main()
                 int cant = nivel*3;
                 for(int i = 0; i < cant; i++)
                 {
-                    int randy = rand()%3;
+                    int randy = rand()%4;
 
                     switch (randy)
                     {
@@ -315,16 +316,18 @@ int main()
 
                         case 1:
                             patitos.insert(patitos.begin(), new WaterBarrier());
-                            (*(patitos.begin()))->cuadro->y= 1280 + (i*300+rand()%(200));
+                            (*(patitos.begin()))->cuadro->y= 1280 + (i*400+rand()%(200));
                             break;
 
                         case 2:
                             patitos.insert(patitos.begin(), new FireBarrier());
-                            (*(patitos.begin()))->cuadro->y= 1280 + (i*300+rand()%(200));
+                            (*(patitos.begin()))->cuadro->y= 1280 + (i*400+rand()%(200));
                             break;
 
                         case 3:
-                        break;
+                            patitos.insert(patitos.begin(), new GroundBarrier());
+                            (*(patitos.begin()))->cuadro->y= 1280 + (i*400+rand()%(200));
+                            break;
 
                     }
                 }
@@ -357,15 +360,16 @@ int main()
                         if(!(personaje->tipoActual == RED || personaje->tipoActual == REDD || personaje->tipoActual == REDI))
                             cout<<"perdiste"<<endl;
                     }
-//                    if((*i)->codigo == 2)
-//                    {
-//                        if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
-//                            cout<<"perdiste"<<endl;
-//                    }
+                    else if((*i)->codigo == 2)
+                    {
+                        if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
+                            cout<<"perdiste"<<endl;
+                    }
                     else if((*i)->codigo == 3)
                     {
                         if(!(personaje->tipoActual == BLUE || personaje->tipoActual == BLUED || personaje->tipoActual == BLUEI))
                             cout<<"perdiste"<<endl;
+                            //patitos.erase(i);
                     }
                     else
                         cout<<"perdiste"<<endl;

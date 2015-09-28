@@ -2,7 +2,6 @@
 
 Highscores::Highscores()
 {
-    //ctor
 }
 
 Highscores::~Highscores()

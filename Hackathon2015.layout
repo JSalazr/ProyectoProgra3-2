@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
+<<<<<<< HEAD
 	<File name="Box.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="90" topLine="0" />
+=======
+<<<<<<< HEAD
+	<File name="Personaje.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4424" topLine="11" />
+=======
+	<File name="WaterBarrier.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="443" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="FireBarrier.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="67" topLine="0" />
+>>>>>>> 5a798e892b41a1450099de78c4b7b910dac94a26
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		</Cursor>
 	</File>
 	<File name="FireBarrier.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -11,19 +28,38 @@
 			<Cursor1 position="67" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="Personaje.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+<<<<<<< HEAD
+	<File name="Enemy.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		<Cursor>
 			<Cursor1 position="571" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="WaterBarrier.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="443" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Personaje.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="4424" topLine="11" />
+=======
+			<Cursor1 position="90" topLine="0" />
+=======
+	<File name="Entidad.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="771" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="obstaculos.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="98" topLine="0" />
+>>>>>>> 5a798e892b41a1450099de78c4b7b910dac94a26
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		</Cursor>
 	</File>
 	<File name="FireBarrier.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -31,7 +67,12 @@
 			<Cursor1 position="285" topLine="0" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="WaterBarrier.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+<<<<<<< HEAD
+	<File name="Personaje.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		<Cursor>
 			<Cursor1 position="217" topLine="0" />
 		</Cursor>
@@ -58,7 +99,46 @@
 	</File>
 	<File name="Enemy.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="186" topLine="0" />
+=======
+			<Cursor1 position="98" topLine="0" />
+=======
+	<File name="Enemy.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1053" topLine="24" />
+		</Cursor>
+	</File>
+	<File name="Personaje.cpp" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4424" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="Box.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="90" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Personaje.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="571" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="Enemy.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="186" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="lives.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="78" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="obstaculos.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="222" topLine="0" />
+>>>>>>> 5a798e892b41a1450099de78c4b7b910dac94a26
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		</Cursor>
 	</File>
 	<File name="Enemy.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -66,14 +146,28 @@
 			<Cursor1 position="1053" topLine="24" />
 		</Cursor>
 	</File>
+<<<<<<< HEAD
 	<File name="obstaculos.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+=======
+<<<<<<< HEAD
+	<File name="Enemy.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		<Cursor>
 			<Cursor1 position="222" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="Entidad.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
+<<<<<<< HEAD
 			<Cursor1 position="152" topLine="0" />
+=======
+			<Cursor1 position="771" topLine="0" />
+=======
+	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9729" topLine="342" />
+>>>>>>> 5a798e892b41a1450099de78c4b7b910dac94a26
+>>>>>>> c03e281ead649ee43b9069ae14eaa5615dc1e061
 		</Cursor>
 	</File>
 	<File name="obstaculos.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">

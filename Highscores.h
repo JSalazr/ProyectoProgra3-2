@@ -11,7 +11,7 @@ class Highscores
     public:
         multimap<int, string> highs;
         Highscores();
-        void crearScores();
+        void escribirHighScores();
         virtual ~Highscores();
     protected:
     private:

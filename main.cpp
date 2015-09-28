@@ -35,6 +35,7 @@ ALLEGRO_TIMER *timer = NULL;
 
 //Elementos Generales
 ALLEGRO_BITMAP  *logo   = NULL;
+ALLEGRO_BITMAP  *perder   = NULL;
 ALLEGRO_BITMAP  *instru   = NULL;
 ALLEGRO_BITMAP  *fondo   = NULL;
 ALLEGRO_BITMAP  *pausa   = NULL;
@@ -78,7 +79,7 @@ ALLEGRO_FONT *normalFont = NULL;
 int width = 768, height = 1000, FPS = 30, seconds=1, timer2=0, moveSpeed=5,moveSpeedB1=1, moveSpeedB2=3, menuopt=1, pauseopt=1;
 string currentuser="hola";
 int bg1=0, bg2=0;
-bool izq=false, der=false, splash1=true, splash2= false, pausa_m=false, inst_m=false, scores_m=false, about_m=false;
+bool izq=false, der=false, splash1=true, splash2= false, pausa_m=false, inst_m=false, scores_m=false, about_m=false, perder_m=false;
 
 bool collision(Entidad* e, Entidad* a);
 
@@ -367,6 +368,7 @@ int main()
     btnabout = al_load_bitmap("resources/about.png");
     btnabout1 = al_load_bitmap("resources/about1.png");
     instrucciones = al_load_bitmap("resources/instrucciones.png");
+    perder = al_load_bitmap("resources/perdiste.png");
     scores_s = al_load_bitmap("resources/scores_s.png");
     splashabout = al_load_bitmap("resources/splashabout.png");
     optionSound = al_load_sample("resources/option.wav");
@@ -469,6 +471,7 @@ int main()
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 inst_m=false;
             }
+
              if(scores_m){
                 al_draw_bitmap(scores_s, 0, 0, 100);
                 int lug=high->highs.size();
@@ -526,6 +529,13 @@ int main()
                 about_m=false;
             }
         }
+        else if(perder_m){
+        al_draw_bitmap(perder,0,0,100);
+           if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE ){
+                perder_m=false;
+                splash1=true;
+            }
+        }
 
         else
         {
@@ -540,7 +550,8 @@ int main()
                 bg2=0;
                 izq=false;
                 der=false;
-                splash1=true;
+                splash1=false;
+                perder_m=true;
                 splash2= false;
                 pausa_m=false;
                 inst_m=false;

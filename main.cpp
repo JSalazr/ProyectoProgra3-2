@@ -182,7 +182,7 @@ string ingresarNombre()
             for(int x = 1; x <= 27; x++)//for para obtener los valores de todas las letras
                 if (press(x))//comparamos que tecla está siendo presionada
                 {
-		    al_play_sample_instance(keyTypeInstance);
+                    al_play_sample_instance(keyTypeInstance);
                     char e = x+64; //de ser así, sumarle al valor ASCII equivalente
                     name.push_back(e);//concatenarla al nombre
                 }
@@ -207,15 +207,26 @@ void menuin(){
 
     al_draw_bitmap(menu, 0, 0 ,100);
 
-    if(press(ALLEGRO_KEY_DOWN)){
+    if(press(ALLEGRO_KEY_DOWN))
+    {
+        al_play_sample_instance(optionSoundInstance);
         menuopt++;
         if(menuopt>5)
+        {
+            //al_play_sample_instance(optionSoundInstance);
             menuopt=2;
+        }
+
     }
-    if(press(ALLEGRO_KEY_UP)){
+    if(press(ALLEGRO_KEY_UP))
+    {
+        al_play_sample_instance(optionSoundInstance);
         menuopt--;
         if(menuopt<1)
+        {
+            //al_play_sample_instance(optionSoundInstance);
             menuopt=4;
+        }
     }
 
     if(menuopt==1){
@@ -223,22 +234,21 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit, 190, 790, 100);
-
+        al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
             currentuser = ingresarNombre();
             splash2=false;
         }
-
     }
     else if(menuopt==2){
         al_draw_bitmap(btnplay, 190, 390, 100);
         al_draw_bitmap(btnscore1, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit, 190, 790, 100);
+        //al_play_sample_instance(optionSoundInstance);
          if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
-
             //splash2=false;
             scores_m=true;
         }
@@ -250,9 +260,9 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst1, 140, 660, 100);
         al_draw_bitmap(btnexit, 190, 790, 100);
-         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        //al_play_sample_instance(optionSoundInstance);
+        if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
-
             //splash2=false;
             inst_m=true;
         }
@@ -263,7 +273,7 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit1, 190, 790, 100);
-
+        //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
             exit(1);
@@ -403,13 +413,13 @@ int main()
                 {
                     splash1=false;
                     splash2=true;
-		    al_play_sample_instance(optionSoundInstance);
+                    //al_play_sample_instance(optionSoundInstance);
                 }
             }
             if(splash2)
             {
-               menuin();
-	       al_play_sample_instance(optionSoundInstance);
+                menuin();
+                //al_play_sample_instance(optionSoundInstance);
             }
              if(inst_m){
 
@@ -417,8 +427,8 @@ int main()
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 inst_m=false;
             }
-             if(scores_m){
-
+             if(scores_m)
+             {
                 al_draw_bitmap(scores_s, 0, 0, 100);
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 scores_m=false;
@@ -439,7 +449,6 @@ int main()
                 nivel = 1;
                 lvlup = 1;
                 restart = 0;
-
             }
 
             if(lvlup)

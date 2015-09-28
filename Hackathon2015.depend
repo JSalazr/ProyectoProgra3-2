@@ -573,7 +573,7 @@
 1443410257 /home/alejo/Documents/ProyectoProgra3-2/WaterBarrier.h
 	"obstaculos.h"
 
-1443410439 source:/home/alejo/Documents/ProyectoProgra3-2/main.cpp
+1443412332 source:/home/alejo/Documents/ProyectoProgra3-2/main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"

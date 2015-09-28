@@ -46,6 +46,8 @@
 		<Unit filename="FloatingObs.h" />
 		<Unit filename="GroundBarrier.cpp" />
 		<Unit filename="GroundBarrier.h" />
+		<Unit filename="Highscores.cpp" />
+		<Unit filename="Highscores.h" />
 		<Unit filename="KeypressEvent.h" />
 		<Unit filename="Personaje.cpp" />
 		<Unit filename="Personaje.h" />

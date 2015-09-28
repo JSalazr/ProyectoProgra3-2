@@ -332,7 +332,7 @@ int main()
 
     int nivel = 1;
     bool lvlup = 1;
-    bool restart = 1;
+    bool restart = 0;
     ostringstream displayLvl;
 //    string displayLvl;
 //    patitos = initEnemigos(nivel*5);
@@ -418,14 +418,23 @@ int main()
             if(restart)
             {
                 high->highs.insert(pair<int, string>(nivel, currentuser));
-                for(vector<Entidad*>::iterator i = patitos.begin(); i != patitos.end(); i++)
-                {
-                    if(i != patitos.begin())
-                        patitos.erase(i);
-                }
+                patitos.clear();
+                patitos.insert(patitos.begin(), personaje);
+                menuopt=1;
+                pauseopt=1;
+                bg1=0;
+                bg2=0;
+                izq=false;
+                der=false;
+                splash1=true;
+                splash2= false;
+                pausa_m=false;
+                inst_m=false;
+                scores_m=false;
                 nivel = 1;
                 lvlup = 1;
                 restart = 0;
+                splash2 = 1;
 
             }
 
@@ -502,21 +511,32 @@ int main()
                     if((*i)->codigo == 1)
                     {
                         if(!(personaje->tipoActual == RED || personaje->tipoActual == REDD || personaje->tipoActual == REDI))
-                            cout<<"perdiste"<<endl;
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
                     }
                     else if((*i)->codigo == 2)
                     {
                         if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
-                            cout<<"perdiste"<<endl;
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
                     }
                     else if((*i)->codigo == 3)
                     {
                         if(!(personaje->tipoActual == BLUE || personaje->tipoActual == BLUED || personaje->tipoActual == BLUEI))
-                            cout<<"perdiste"<<endl;
-                            //patitos.erase(i);
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
                     }
                     else
-                        cout<<"perdiste"<<endl;
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
 
                 }
                  //cout<<(&(*i)->codigo)<<endl;

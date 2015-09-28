@@ -54,9 +54,13 @@ ALLEGRO_BITMAP  *scores_s   = NULL;
 ALLEGRO_SAMPLE* optionSound = NULL;
 ALLEGRO_SAMPLE* levelUp = NULL;
 ALLEGRO_SAMPLE* keyType = NULL;
+ALLEGRO_SAMPLE* lose = NULL;
+ALLEGRO_SAMPLE* yey = NULL;
 ALLEGRO_SAMPLE_INSTANCE* optionSoundInstance = NULL;
 ALLEGRO_SAMPLE_INSTANCE* levelUpInstance = NULL;
 ALLEGRO_SAMPLE_INSTANCE* keyTypeInstance = NULL;
+ALLEGRO_SAMPLE_INSTANCE* loseInstance = NULL;
+ALLEGRO_SAMPLE_INSTANCE* yeyInstance = NULL;
 
 ALLEGRO_KEYBOARD_STATE keystate;
 
@@ -204,37 +208,35 @@ string ingresarNombre()
 }
 
 void menuin(){
-
     al_draw_bitmap(menu, 0, 0 ,100);
-
     if(press(ALLEGRO_KEY_DOWN))
     {
-        al_play_sample_instance(optionSoundInstance);
+        //al_play_sample_instance(optionSoundInstance);
         menuopt++;
         if(menuopt>5)
         {
             //al_play_sample_instance(optionSoundInstance);
             menuopt=2;
         }
-
+        //al_play_sample_instance(optionSoundInstance);
     }
     if(press(ALLEGRO_KEY_UP))
     {
-        al_play_sample_instance(optionSoundInstance);
         menuopt--;
         if(menuopt<1)
         {
             //al_play_sample_instance(optionSoundInstance);
             menuopt=4;
         }
+        //al_play_sample_instance(optionSoundInstance);
     }
 
     if(menuopt==1){
         al_draw_bitmap(btnplay1, 190, 390, 100);
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
-        al_draw_bitmap(btnexit, 190, 790, 100);
-        al_play_sample_instance(optionSoundInstance);
+        al_draw_bitmap(btnexit, 200, 790, 100);
+        //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
             currentuser = ingresarNombre();
@@ -242,10 +244,10 @@ void menuin(){
         }
     }
     else if(menuopt==2){
-        al_draw_bitmap(btnplay, 190, 390, 100);
+        al_draw_bitmap(btnplay, 180, 375, 100);
         al_draw_bitmap(btnscore1, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
-        al_draw_bitmap(btnexit, 190, 790, 100);
+        al_draw_bitmap(btnexit, 200, 790, 100);
         //al_play_sample_instance(optionSoundInstance);
          if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -256,10 +258,10 @@ void menuin(){
 
      }
      else if(menuopt==3){
-        al_draw_bitmap(btnplay, 190, 390, 100);
+        al_draw_bitmap(btnplay, 180, 375, 100);
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst1, 140, 660, 100);
-        al_draw_bitmap(btnexit, 190, 790, 100);
+        al_draw_bitmap(btnexit, 200, 790, 100);
         //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -269,10 +271,10 @@ void menuin(){
 
      }
     else if(menuopt==4){
-        al_draw_bitmap(btnplay, 190, 390, 100);
+        al_draw_bitmap(btnplay, 180, 375, 100);
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
-        al_draw_bitmap(btnexit1, 190, 790, 100);
+        al_draw_bitmap(btnexit1, 200, 790, 100);
         //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -285,31 +287,37 @@ void menuin(){
 
 void pausein(){
         al_draw_bitmap(splash, 0, 0, 100);
-        if(press(ALLEGRO_KEY_DOWN)){
+        if(press(ALLEGRO_KEY_DOWN))
+        {
             pauseopt++;
+            //al_play_sample_instance(optionSoundInstance);
             if(pauseopt>3)
                 pauseopt=2;
         }
-        if(press(ALLEGRO_KEY_UP)){
+        if(press(ALLEGRO_KEY_UP))
+        {
             pauseopt--;
+            //al_play_sample_instance(optionSoundInstance);
             if(pauseopt<1)
                 pauseopt=1;
         }
-        if(pauseopt==1){
+        if(pauseopt==1)
+        {
             al_draw_bitmap(btnplay1, 190, 200, 100);
-            al_draw_bitmap(btnexit, 190, 500, 100);
+            al_draw_bitmap(btnexit, 190, 650, 100);
             if(ev.keyboard.keycode==ALLEGRO_KEY_ENTER)
                 pausa_m=false;
         }
-        else if(pauseopt==2){
-            al_draw_bitmap(btnplay, 190, 200, 100);
-            al_draw_bitmap(btnexit1, 190, 500, 100);
-            if(ev.keyboard.keycode==ALLEGRO_KEY_ENTER){
-                 splash1=true;
-                 pausa_m=false;
+        else if(pauseopt==2)
+        {
+            al_draw_bitmap(btnplay, 180, 185, 100);
+            al_draw_bitmap(btnexit1, 190, 650, 100);
+            if(ev.keyboard.keycode==ALLEGRO_KEY_ENTER)
+            {
+                splash1 = true;
+                pausa_m = false;
             }
         }
-
 }
 
 vector<Entidad* > initEnemigos(int cant);
@@ -322,6 +330,7 @@ int main()
 
     personaje = new Personaje(&ev);
     patitos.insert(patitos.begin(), personaje);
+    //al_reverse_samples(1);
 //    A
     cout<<"llrego alo"<<endl;
     fondo = al_load_bitmap("resources/fondo-cielo.png");
@@ -341,15 +350,23 @@ int main()
     optionSound = al_load_sample("resources/option.wav");
     levelUp = al_load_sample("resources/levelup.wav");
     keyType = al_load_sample("resources/keytype.wav");
+    lose = al_load_sample("resources/fire.wav");
+    yey = al_load_sample("resources/yey.wav");
     optionSoundInstance = al_create_sample_instance(optionSound);
     levelUpInstance = al_create_sample_instance(levelUp);
     keyTypeInstance = al_create_sample_instance(keyType);
+    loseInstance = al_create_sample_instance(lose);
+    yeyInstance = al_create_sample_instance(yey);
     al_set_sample_instance_playmode(optionSoundInstance, ALLEGRO_PLAYMODE_ONCE);
     al_set_sample_instance_playmode(levelUpInstance, ALLEGRO_PLAYMODE_ONCE);
     al_set_sample_instance_playmode(keyTypeInstance, ALLEGRO_PLAYMODE_ONCE);
+    al_set_sample_instance_playmode(loseInstance, ALLEGRO_PLAYMODE_ONCE);
+    al_set_sample_instance_playmode(yeyInstance, ALLEGRO_PLAYMODE_ONCE);
     al_attach_sample_instance_to_mixer(optionSoundInstance, al_get_default_mixer());
     al_attach_sample_instance_to_mixer(levelUpInstance, al_get_default_mixer());
     al_attach_sample_instance_to_mixer(keyTypeInstance, al_get_default_mixer());
+    al_attach_sample_instance_to_mixer(loseInstance, al_get_default_mixer());
+    al_attach_sample_instance_to_mixer(yeyInstance, al_get_default_mixer());
 
     int nivel = 1;
     bool lvlup = 1;
@@ -417,12 +434,9 @@ int main()
                 }
             }
             if(splash2)
-            {
                 menuin();
-                //al_play_sample_instance(optionSoundInstance);
-            }
-             if(inst_m){
-
+            if(inst_m)
+            {
                 al_draw_bitmap(instrucciones, 0, 0, 100);
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 inst_m=false;
@@ -433,7 +447,6 @@ int main()
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 scores_m=false;
             }
-
         }
 
         else
@@ -458,7 +471,6 @@ int main()
                 for(int i = 0; i < cant; i++)
                 {
                     int randy = rand()%4;
-
                     switch (randy)
                     {
                         case 0:
@@ -481,13 +493,13 @@ int main()
                             patitos.insert(patitos.begin(), new GroundBarrier());
                             (*(patitos.begin()))->cuadro->y= 1280 + (i*400+rand()%(200));
                             break;
-
                     }
                 }
                 lvlup = 0;
                 displayLvl.str("");
                 displayLvl.clear();
                 displayLvl << "NIVEL: " << nivel;
+                al_play_sample_instance(levelUpInstance);
                 nivel++;
             }
 
@@ -496,14 +508,13 @@ int main()
 //        al_clear_to_color(al_map_rgb(0,0,255));
 
 
-            if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+            if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE)
+            {
                 pausa_m=true;
-                }
-
-            if(pausa_m){
-                pausein();
             }
 
+            if(pausa_m)
+                pausein();
 
             else{
 
@@ -521,25 +532,30 @@ int main()
 
                 if((*i) != personaje && collision((*i), personaje))
                 {
+                    //al_reverse_samples(1);
+                    al_play_sample_instance(yeyInstance);
                     if((*i)->codigo == 1)
                     {
                         if(!(personaje->tipoActual == RED || personaje->tipoActual == REDD || personaje->tipoActual == REDI))
+                            al_play_sample_instance(loseInstance);
                             cout<<"perdiste"<<endl;
                     }
                     else if((*i)->codigo == 2)
                     {
                         if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
+                            al_play_sample_instance(loseInstance);
                             cout<<"perdiste"<<endl;
                     }
                     else if((*i)->codigo == 3)
                     {
                         if(!(personaje->tipoActual == BLUE || personaje->tipoActual == BLUED || personaje->tipoActual == BLUEI))
+                            al_play_sample_instance(loseInstance);
                             cout<<"perdiste"<<endl;
                             //patitos.erase(i);
                     }
                     else
+                        al_play_sample_instance(loseInstance);
                         cout<<"perdiste"<<endl;
-
                 }
                  //cout<<(&(*i)->codigo)<<endl;
 

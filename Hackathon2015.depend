@@ -105,3 +105,29 @@
 1443410257 /home/alejo/Documents/ProyectoProgra3-2/WaterBarrier.h
 	"obstaculos.h"
 
+1443420365 source:/home/alejo/Documents/ProyectoProgra3-2/main.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	"Highscores.h"
+	"coins.h"
+	"lives.h"
+	"obstaculos.h"
+	"Entidad.h"
+	"Personaje.h"
+	"FloatingObs.h"
+	"Enemy.h"
+	"WaterBarrier.h"
+	"FireBarrier.h"
+	"GroundBarrier.h"
+	<unistd.h>
+	<sstream>
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/coins.h
+	"obstaculos.h"
+

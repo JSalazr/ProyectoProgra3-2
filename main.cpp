@@ -40,6 +40,15 @@ ALLEGRO_BITMAP  *splash   = NULL;
 ALLEGRO_BITMAP  *menu   = NULL;
 ALLEGRO_BITMAP  *btnplay   = NULL;
 ALLEGRO_BITMAP  *btnexit   = NULL;
+ALLEGRO_BITMAP  *btnplay1   = NULL;
+ALLEGRO_BITMAP  *btnexit1   = NULL;
+ALLEGRO_BITMAP  *btnscore   = NULL;
+ALLEGRO_BITMAP  *btnscore1   = NULL;
+ALLEGRO_BITMAP  *btninst   = NULL;
+ALLEGRO_BITMAP  *btninst1   = NULL;
+ALLEGRO_BITMAP  *instrucciones   = NULL;
+ALLEGRO_BITMAP  *scores_s   = NULL;
+
 
 ALLEGRO_SAMPLE *music = NULL;
 ALLEGRO_SAMPLE_ID imusic;
@@ -59,10 +68,10 @@ ALLEGRO_FONT *normalFont = NULL;
 
 
 
-int width = 768, height = 1000, FPS = 30, seconds=1, timer2=0, moveSpeed=5,moveSpeedB1=1, moveSpeedB2=3;
+int width = 768, height = 1000, FPS = 30, seconds=1, timer2=0, moveSpeed=5,moveSpeedB1=1, moveSpeedB2=3, menuopt=1, pauseopt=1;
 string currentuser="hola";
 int bg1=0, bg2=0;
-bool izq=false, der=false, splash1=true, splash2= false;
+bool izq=false, der=false, splash1=true, splash2= false, pausa_m=false, inst_m=false, scores_m=false;
 
 bool collision(Entidad* e, Entidad* a);
 
@@ -192,6 +201,100 @@ string ingresarNombre()
     return name;
 }
 
+void menuin(){
+
+    al_draw_bitmap(menu, 0, 0 ,100);
+
+    if(press(ALLEGRO_KEY_DOWN)){
+        menuopt++;
+        if(menuopt>5)
+            menuopt=2;
+    }
+    if(press(ALLEGRO_KEY_UP)){
+        menuopt--;
+        if(menuopt<1)
+            menuopt=4;
+    }
+
+    if(menuopt==1){
+        al_draw_bitmap(btnplay1, 190, 200, 100);
+        al_draw_bitmap(btnscore, 190, 350, 100);
+        al_draw_bitmap(btninst, 190, 500, 100);
+        al_draw_bitmap(btnexit, 190, 550, 100);
+
+        if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        {
+            currentuser = ingresarNombre();
+            splash2=false;
+        }
+
+    }
+    else if(menuopt==2){
+        al_draw_bitmap(btnplay, 190, 200, 100);
+        al_draw_bitmap(btnscore1, 190,350, 100);
+        al_draw_bitmap(btninst, 190, 500, 100);
+        al_draw_bitmap(btnexit, 190, 550, 100);
+         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        {
+
+            //splash2=false;
+            scores_m=true;
+        }
+
+
+     }
+     else if(menuopt==3){
+        al_draw_bitmap(btnplay, 190, 200, 100);
+        al_draw_bitmap(btnscore, 190,350, 100);
+        al_draw_bitmap(btninst1, 190, 500, 100);
+        al_draw_bitmap(btnexit, 190, 550, 100);
+         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        {
+
+            //splash2=false;
+            inst_m=true;
+        }
+
+     }
+    else if(menuopt==4){
+        al_draw_bitmap(btnplay, 190, 200, 100);
+        al_draw_bitmap(btnscore, 190, 350, 100);
+        al_draw_bitmap(btninst, 190, 500, 100);
+        al_draw_bitmap(btnexit1, 190, 550, 100);
+    }
+
+
+}
+
+void pausein(){
+        al_draw_bitmap(splash, 0, 0, 100);
+        if(press(ALLEGRO_KEY_DOWN)){
+            pauseopt++;
+            if(pauseopt>3)
+                pauseopt=2;
+        }
+        if(press(ALLEGRO_KEY_UP)){
+            pauseopt--;
+            if(pauseopt<1)
+                pauseopt=1;
+        }
+        if(pauseopt==1){
+            al_draw_bitmap(btnplay1, 190, 200, 100);
+            al_draw_bitmap(btnexit, 190, 500, 100);
+            if(ev.keyboard.keycode==ALLEGRO_KEY_ENTER)
+                pausa_m=false;
+        }
+        else if(pauseopt==2){
+            al_draw_bitmap(btnplay, 190, 200, 100);
+            al_draw_bitmap(btnexit1, 190, 500, 100);
+            if(ev.keyboard.keycode==ALLEGRO_KEY_ENTER){
+                 splash1=true;
+                 pausa_m=false;
+            }
+        }
+
+}
+
 vector<Entidad* > initEnemigos(int cant);
 vector<Entidad* > patitos;
 Entidad* personaje;// = new Personaje(&ev);
@@ -210,6 +313,15 @@ int main()
     menu = al_load_bitmap("resources/menu.png");
     btnplay = al_load_bitmap("resources/play.png");
     btnexit = al_load_bitmap("resources/exit.png");
+    btnplay1 = al_load_bitmap("resources/play1.png");
+    btnexit1 = al_load_bitmap("resources/exit1.png");
+    btnscore = al_load_bitmap("resources/score.png");
+    btnscore1 = al_load_bitmap("resources/score1.png");
+    btninst = al_load_bitmap("resources/instructions.png");
+    btninst1 = al_load_bitmap("resources/insctructions1.png");
+    instrucciones = al_load_bitmap("resources/instrucciones.png");
+    scores_s = al_load_bitmap("resources/scores_s.png");
+
 
     int nivel = 1;
     bool lvlup = 1;
@@ -264,6 +376,7 @@ int main()
         {
             break;
         }
+
         if(splash1 || splash2)
         {
             if(splash1)
@@ -277,18 +390,23 @@ int main()
             }
             if(splash2)
             {
-                al_draw_bitmap(menu, 0, 0 ,100);
-                al_draw_bitmap(btnplay, 190, 500, 100);
-                al_draw_bitmap(btnexit, 215, 650, 100);
-                if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
-                {
-                    currentuser = ingresarNombre();
-                    splash2=false;
-                }
-                else if(ev.keyboard.keycode == ALLEGRO_KEY_ESCAPE)
-                    break;
+               menuin();
             }
+             if(inst_m){
+
+                al_draw_bitmap(instrucciones, 0, 0, 100);
+                if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
+                inst_m=false;
+            }
+             if(scores_m){
+
+                al_draw_bitmap(scores_s, 0, 0, 100);
+                if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
+                scores_m=false;
+            }
+
         }
+
         else
         {
             if(restart)
@@ -331,6 +449,19 @@ int main()
 //            cant = 0;
 
 //        al_clear_to_color(al_map_rgb(0,0,255));
+
+
+            if(ev.keyboard.keycode==ALLEGRO_KEY_ESCAPE){
+                pausa_m=true;
+                }
+
+            if(pausa_m){
+                pausein();
+            }
+
+
+            else{
+
             al_draw_bitmap(fondo, 0, bg1, 0);
             al_draw_bitmap(fondo, 0, bg1+2560, 0);
             al_draw_bitmap(nubes, 0, bg2, 0);
@@ -393,7 +524,7 @@ int main()
             //if(collision)
         }
 
-
+        }
 
         al_flip_display();
 

@@ -399,7 +399,7 @@
 1443395216 /home/segebre/Desktop/ProyectoProgra3/FireBarrier.h
 	"obstaculos.h"
 
-1443406823 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
+1443408032 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"
@@ -408,6 +408,7 @@
 	<allegro5/allegro_acodec.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
+	"Highscores.h"
 	"coins.h"
 	"lives.h"
 	"obstaculos.h"
@@ -465,4 +466,12 @@
 
 1443397741 /home/segebre/Desktop/ProyectoProgra3/GroundBarrier.h
 	"obstaculos.h"
+
+1443407078 source:/home/segebre/Desktop/ProyectoProgra3/Highscores.cpp
+	"Highscores.h"
+
+1443408044 /home/segebre/Desktop/ProyectoProgra3/Highscores.h
+	<map>
+	<utility>
+	<iostream>
 

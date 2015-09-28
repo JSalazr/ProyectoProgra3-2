@@ -7,7 +7,7 @@
 #include <allegro5/allegro_acodec.h>
 #include <allegro5/allegro_font.h>
 #include <allegro5/allegro_ttf.h>
-//#include <Highscores.h>
+#include "Highscores.h"
 #include "coins.h"
 #include "lives.h"
 #include "obstaculos.h"
@@ -358,8 +358,7 @@ int main()
 //    }
 
 
-//    Highscores *high=new Highscores();
-//    high->highs.insert(pair<int, string>(seconds, currentuser));
+    Highscores *high=new Highscores();
     while(true)
     {
         bool get_event = al_wait_for_event_until(event_queue, &ev, &timeout);
@@ -418,6 +417,7 @@ int main()
         {
             if(restart)
             {
+                high->highs.insert(pair<int, string>(nivel, currentuser));
                 for(vector<Entidad*>::iterator i = patitos.begin(); i != patitos.end(); i++)
                 {
                     if(i != patitos.begin())

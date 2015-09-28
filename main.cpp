@@ -51,12 +51,6 @@ ALLEGRO_BITMAP  *btninst1   = NULL;
 ALLEGRO_BITMAP  *instrucciones   = NULL;
 ALLEGRO_BITMAP  *scores_s   = NULL;
 
-ALLEGRO_SAMPLE *music = NULL;
-ALLEGRO_SAMPLE_ID imusic;
-ALLEGRO_SAMPLE *effect = NULL;
-ALLEGRO_SAMPLE_ID ieffect;
-ALLEGRO_SAMPLE *game = NULL;
-ALLEGRO_SAMPLE_ID igame;
 ALLEGRO_SAMPLE* optionSound = NULL;
 ALLEGRO_SAMPLE* levelUp = NULL;
 ALLEGRO_SAMPLE* keyType = NULL;
@@ -202,7 +196,7 @@ string ingresarNombre()
             }
         }
 //        al_draw_bitmap(fondo,0,0,0);
-        al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTRE, "INGRESE SU NOMBRE:");
+        al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTER, "INGRESE SU NOMBRE:");
         al_draw_text(normalFont, al_map_rgb(255,255,255), width/2, height/2,ALLEGRO_ALIGN_CENTRE, name.c_str());//dibuja el nombre
         al_flip_display();//necesario para cambiar a la siguiente parte del buffer (que dibujará)
     }
@@ -344,11 +338,6 @@ int main()
     btninst1 = al_load_bitmap("resources/insctructions1.png");
     instrucciones = al_load_bitmap("resources/instrucciones.png");
     scores_s = al_load_bitmap("resources/scores_s.png");
-
-
-    int nivel = 1;
-    Highscores *high=new Highscores();
-    int cont=0;
     optionSound = al_load_sample("resources/option.wav");
     levelUp = al_load_sample("resources/levelup.wav");
     keyType = al_load_sample("resources/keytype.wav");
@@ -361,8 +350,10 @@ int main()
     al_attach_sample_instance_to_mixer(optionSoundInstance, al_get_default_mixer());
     al_attach_sample_instance_to_mixer(levelUpInstance, al_get_default_mixer());
     al_attach_sample_instance_to_mixer(keyTypeInstance, al_get_default_mixer());
+
+    int nivel = 1;
     bool lvlup = 1;
-    bool restart = 0;
+    bool restart = 1;
     ostringstream displayLvl;
 //    string displayLvl;
 //    patitos = initEnemigos(nivel*5);
@@ -388,7 +379,7 @@ int main()
 //    }
 
 
-
+    Highscores *high=new Highscores();
     while(true)
     {
         bool get_event = al_wait_for_event_until(event_queue, &ev, &timeout);
@@ -400,7 +391,7 @@ int main()
             timer2++;
             if(timer2==60)
             {
-//                cout<<seconds++<<endl;
+                cout<<seconds++<<endl;
                 timer2=0;
             }
             if(timer2%2==0)
@@ -423,6 +414,7 @@ int main()
                     splash1=false;
                     splash2=true;
                     //al_play_sample_instance(optionSoundInstance);
+                }
             }
             if(splash2)
             {
@@ -438,22 +430,6 @@ int main()
              if(scores_m)
              {
                 al_draw_bitmap(scores_s, 0, 0, 100);
-                for(multimap<int,string>::iterator i = high->highs.begin();
-                    i!=high->highs.end();
-                    i++)
-                    {
-                        if(high->highs.size()>3){
-                            if(cont>=high->highs.size()-3 && cont<high->highs.size())
-                                cout<<(*i).first<<","<<(*i).second<<endl;
-                            cont++;
-                        }
-                        else
-                        {
-                            if(cont<high->highs.size())
-                                cout<<(*i).first<<","<<(*i).second<<endl;
-                            cont++;
-                        }
-                    }
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 scores_m=false;
             }
@@ -465,23 +441,14 @@ int main()
             if(restart)
             {
                 high->highs.insert(pair<int, string>(nivel, currentuser));
-                patitos.clear();
-                patitos.insert(patitos.begin(), personaje);
-                menuopt=1;
-                pauseopt=1;
-                bg1=0;
-                bg2=0;
-                izq=false;
-                der=false;
-                splash1=true;
-                splash2= false;
-                pausa_m=false;
-                inst_m=false;
-                scores_m=false;
+                for(vector<Entidad*>::iterator i = patitos.begin(); i != patitos.end(); i++)
+                {
+                    if(i != patitos.begin())
+                        patitos.erase(i);
+                }
                 nivel = 1;
                 lvlup = 1;
                 restart = 0;
-                splash2 = 1;
             }
 
             if(lvlup)
@@ -557,38 +524,27 @@ int main()
                     if((*i)->codigo == 1)
                     {
                         if(!(personaje->tipoActual == RED || personaje->tipoActual == REDD || personaje->tipoActual == REDI))
-                        {
-                            restart = 1;
-                            patitos.erase(i);
-                        }
+                            cout<<"perdiste"<<endl;
                     }
                     else if((*i)->codigo == 2)
                     {
                         if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
-                        {
-                            restart = 1;
-                            patitos.erase(i);
-                        }
+                            cout<<"perdiste"<<endl;
                     }
                     else if((*i)->codigo == 3)
                     {
                         if(!(personaje->tipoActual == BLUE || personaje->tipoActual == BLUED || personaje->tipoActual == BLUEI))
-                        {
-                            restart = 1;
-                            patitos.erase(i);
-                        }
+                            cout<<"perdiste"<<endl;
+                            //patitos.erase(i);
                     }
                     else
-                        {
-                            restart = 1;
-                            patitos.erase(i);
-                        }
+                        cout<<"perdiste"<<endl;
 
                 }
                  //cout<<(&(*i)->codigo)<<endl;
 
                 if((*i)->cuadro->y>900)
-                    al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTRE, displayLvl.str().c_str());
+                    al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTER, displayLvl.str().c_str());
 
 //            if((*patitos.end()-1)->cuadro->x > ((*i)->cuadro->x+(*i)->cuadro->width))
 //                cout<<"persdiste";

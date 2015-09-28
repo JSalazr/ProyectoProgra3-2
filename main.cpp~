@@ -51,6 +51,12 @@ ALLEGRO_BITMAP  *btninst1   = NULL;
 ALLEGRO_BITMAP  *instrucciones   = NULL;
 ALLEGRO_BITMAP  *scores_s   = NULL;
 
+ALLEGRO_SAMPLE *music = NULL;
+ALLEGRO_SAMPLE_ID imusic;
+ALLEGRO_SAMPLE *effect = NULL;
+ALLEGRO_SAMPLE_ID ieffect;
+ALLEGRO_SAMPLE *game = NULL;
+ALLEGRO_SAMPLE_ID igame;
 ALLEGRO_SAMPLE* optionSound = NULL;
 ALLEGRO_SAMPLE* levelUp = NULL;
 ALLEGRO_SAMPLE* keyType = NULL;
@@ -182,7 +188,7 @@ string ingresarNombre()
             for(int x = 1; x <= 27; x++)//for para obtener los valores de todas las letras
                 if (press(x))//comparamos que tecla está siendo presionada
                 {
-		    al_play_sample_instance(keyTypeInstance);
+                    al_play_sample_instance(keyTypeInstance);
                     char e = x+64; //de ser así, sumarle al valor ASCII equivalente
                     name.push_back(e);//concatenarla al nombre
                 }
@@ -196,7 +202,7 @@ string ingresarNombre()
             }
         }
 //        al_draw_bitmap(fondo,0,0,0);
-        al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTER, "INGRESE SU NOMBRE:");
+        al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTRE, "INGRESE SU NOMBRE:");
         al_draw_text(normalFont, al_map_rgb(255,255,255), width/2, height/2,ALLEGRO_ALIGN_CENTRE, name.c_str());//dibuja el nombre
         al_flip_display();//necesario para cambiar a la siguiente parte del buffer (que dibujará)
     }
@@ -207,15 +213,26 @@ void menuin(){
 
     al_draw_bitmap(menu, 0, 0 ,100);
 
-    if(press(ALLEGRO_KEY_DOWN)){
+    if(press(ALLEGRO_KEY_DOWN))
+    {
+        al_play_sample_instance(optionSoundInstance);
         menuopt++;
         if(menuopt>5)
+        {
+            //al_play_sample_instance(optionSoundInstance);
             menuopt=2;
+        }
+
     }
-    if(press(ALLEGRO_KEY_UP)){
+    if(press(ALLEGRO_KEY_UP))
+    {
+        al_play_sample_instance(optionSoundInstance);
         menuopt--;
         if(menuopt<1)
+        {
+            //al_play_sample_instance(optionSoundInstance);
             menuopt=4;
+        }
     }
 
     if(menuopt==1){
@@ -223,22 +240,21 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit, 190, 790, 100);
-
+        al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
             currentuser = ingresarNombre();
             splash2=false;
         }
-
     }
     else if(menuopt==2){
         al_draw_bitmap(btnplay, 190, 390, 100);
         al_draw_bitmap(btnscore1, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit, 190, 790, 100);
+        //al_play_sample_instance(optionSoundInstance);
          if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
-
             //splash2=false;
             scores_m=true;
         }
@@ -250,9 +266,9 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst1, 140, 660, 100);
         al_draw_bitmap(btnexit, 190, 790, 100);
-         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        //al_play_sample_instance(optionSoundInstance);
+        if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
-
             //splash2=false;
             inst_m=true;
         }
@@ -263,7 +279,7 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit1, 190, 790, 100);
-
+        //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
             exit(1);
@@ -331,8 +347,22 @@ int main()
 
 
     int nivel = 1;
+    Highscores *high=new Highscores();
+    int cont=0;
+    optionSound = al_load_sample("resources/option.wav");
+    levelUp = al_load_sample("resources/levelup.wav");
+    keyType = al_load_sample("resources/keytype.wav");
+    optionSoundInstance = al_create_sample_instance(optionSound);
+    levelUpInstance = al_create_sample_instance(levelUp);
+    keyTypeInstance = al_create_sample_instance(keyType);
+    al_set_sample_instance_playmode(optionSoundInstance, ALLEGRO_PLAYMODE_ONCE);
+    al_set_sample_instance_playmode(levelUpInstance, ALLEGRO_PLAYMODE_ONCE);
+    al_set_sample_instance_playmode(keyTypeInstance, ALLEGRO_PLAYMODE_ONCE);
+    al_attach_sample_instance_to_mixer(optionSoundInstance, al_get_default_mixer());
+    al_attach_sample_instance_to_mixer(levelUpInstance, al_get_default_mixer());
+    al_attach_sample_instance_to_mixer(keyTypeInstance, al_get_default_mixer());
     bool lvlup = 1;
-    bool restart = 1;
+    bool restart = 0;
     ostringstream displayLvl;
 //    string displayLvl;
 //    patitos = initEnemigos(nivel*5);
@@ -358,7 +388,7 @@ int main()
 //    }
 
 
-    Highscores *high=new Highscores();
+
     while(true)
     {
         bool get_event = al_wait_for_event_until(event_queue, &ev, &timeout);
@@ -370,7 +400,7 @@ int main()
             timer2++;
             if(timer2==60)
             {
-                cout<<seconds++<<endl;
+//                cout<<seconds++<<endl;
                 timer2=0;
             }
             if(timer2%2==0)
@@ -392,11 +422,24 @@ int main()
                 {
                     splash1=false;
                     splash2=true;
+<<<<<<< HEAD
+                    //al_play_sample_instance(optionSoundInstance);
+=======
+
+		    al_play_sample_instance(optionSoundInstance);
+>>>>>>> 7ed3852f60fe603ab796883adda65b9ee63581fd
                 }
             }
             if(splash2)
             {
+<<<<<<< HEAD
+                menuin();
+                //al_play_sample_instance(optionSoundInstance);
+=======
                menuin();
+
+	       al_play_sample_instance(optionSoundInstance);
+>>>>>>> 7ed3852f60fe603ab796883adda65b9ee63581fd
             }
              if(inst_m){
 
@@ -404,9 +447,29 @@ int main()
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 inst_m=false;
             }
+<<<<<<< HEAD
+             if(scores_m)
+             {
+=======
              if(scores_m){
-
+>>>>>>> 7ed3852f60fe603ab796883adda65b9ee63581fd
                 al_draw_bitmap(scores_s, 0, 0, 100);
+                for(multimap<int,string>::iterator i = high->highs.begin();
+                    i!=high->highs.end();
+                    i++)
+                    {
+                        if(high->highs.size()>3){
+                            if(cont>=high->highs.size()-3 && cont<high->highs.size())
+                                cout<<(*i).first<<","<<(*i).second<<endl;
+                            cont++;
+                        }
+                        else
+                        {
+                            if(cont<high->highs.size())
+                                cout<<(*i).first<<","<<(*i).second<<endl;
+                            cont++;
+                        }
+                    }
                 if(ev.keyboard.keycode== ALLEGRO_KEY_ESCAPE )
                 scores_m=false;
             }
@@ -418,15 +481,27 @@ int main()
             if(restart)
             {
                 high->highs.insert(pair<int, string>(nivel, currentuser));
-                for(vector<Entidad*>::iterator i = patitos.begin(); i != patitos.end(); i++)
-                {
-                    if(i != patitos.begin())
-                        patitos.erase(i);
-                }
+                patitos.clear();
+                patitos.insert(patitos.begin(), personaje);
+                menuopt=1;
+                pauseopt=1;
+                bg1=0;
+                bg2=0;
+                izq=false;
+                der=false;
+                splash1=true;
+                splash2= false;
+                pausa_m=false;
+                inst_m=false;
+                scores_m=false;
                 nivel = 1;
                 lvlup = 1;
                 restart = 0;
+<<<<<<< HEAD
+=======
+                splash2 = 1;
 
+>>>>>>> 7ed3852f60fe603ab796883adda65b9ee63581fd
             }
 
             if(lvlup)
@@ -502,27 +577,38 @@ int main()
                     if((*i)->codigo == 1)
                     {
                         if(!(personaje->tipoActual == RED || personaje->tipoActual == REDD || personaje->tipoActual == REDI))
-                            cout<<"perdiste"<<endl;
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
                     }
                     else if((*i)->codigo == 2)
                     {
                         if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
-                            cout<<"perdiste"<<endl;
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
                     }
                     else if((*i)->codigo == 3)
                     {
                         if(!(personaje->tipoActual == BLUE || personaje->tipoActual == BLUED || personaje->tipoActual == BLUEI))
-                            cout<<"perdiste"<<endl;
-                            //patitos.erase(i);
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
                     }
                     else
-                        cout<<"perdiste"<<endl;
+                        {
+                            restart = 1;
+                            patitos.erase(i);
+                        }
 
                 }
                  //cout<<(&(*i)->codigo)<<endl;
 
                 if((*i)->cuadro->y>900)
-                    al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTER, displayLvl.str().c_str());
+                    al_draw_text(normalFont, al_map_rgb(102,204,0), width/2, (height/2)-35,ALLEGRO_ALIGN_CENTRE, displayLvl.str().c_str());
 
 //            if((*patitos.end()-1)->cuadro->x > ((*i)->cuadro->x+(*i)->cuadro->width))
 //                cout<<"persdiste";

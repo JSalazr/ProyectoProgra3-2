@@ -1,0 +1,107 @@
+# depslib dependency file v1.0
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Box.cpp
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Box.h
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Clean.cpp
+	"Clean.h"
+	"obstaculos.h"
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Clean.h
+	"obstaculos.h"
+	"Entidad.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/obstaculos.h
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"Entidad.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Entidad.h
+	"Box.h"
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<vector>
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Enemy.cpp
+	"Enemy.h"
+	"obstaculos.h"
+	<vector>
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Enemy.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Entidad.cpp
+	"Entidad.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/FireBarrier.cpp
+	"FireBarrier.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/FireBarrier.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/FloatingObs.cpp
+	"FloatingObs.h"
+	"obstaculos.h"
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/FloatingObs.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/GroundBarrier.cpp
+	"GroundBarrier.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/GroundBarrier.h
+	"obstaculos.h"
+
+1443414628 source:/home/alejo/Documents/ProyectoProgra3-2/Highscores.cpp
+	"Highscores.h"
+
+1443414628 /home/alejo/Documents/ProyectoProgra3-2/Highscores.h
+	<map>
+	<utility>
+	<iostream>
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/lives.cpp
+	"lives.h"
+	"obstaculos.h"
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/lives.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/obstaculos.cpp
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Personaje.cpp
+	"Personaje.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Personaje.h
+	"Box.h"
+	"Entidad.h"
+	<iostream>
+	<allegro5/allegro.h>
+	"allegro5/allegro_image.h"
+	"allegro5/allegro_native_dialog.h"
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_acodec.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_ttf.h>
+	<vector>
+	<map>
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/WaterBarrier.cpp
+	"WaterBarrier.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/WaterBarrier.h
+	"obstaculos.h"
+

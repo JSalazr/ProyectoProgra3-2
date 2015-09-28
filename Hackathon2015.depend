@@ -1,25 +1,46 @@
 # depslib dependency file v1.0
+<<<<<<< HEAD
 1442275946 source:/home/segebre/Desktop/hackathon2015/Box.cpp
 	"Box.h"
 
 1442275946 /home/segebre/Desktop/hackathon2015/Box.h
 
 1443389574 source:/home/segebre/Desktop/hackathon2015/Clean.cpp
+=======
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Box.cpp
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Box.h
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Clean.cpp
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	"Clean.h"
 	"obstaculos.h"
 	"Box.h"
 
+<<<<<<< HEAD
 1442275946 /home/segebre/Desktop/hackathon2015/Clean.h
 	"obstaculos.h"
 	"Entidad.h"
 
 1443389574 /home/segebre/Desktop/hackathon2015/obstaculos.h
+=======
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Clean.h
+	"obstaculos.h"
+	"Entidad.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/obstaculos.h
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"
 	"Entidad.h"
 
+<<<<<<< HEAD
 1443391464 /home/segebre/Desktop/hackathon2015/Entidad.h
+=======
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Entidad.h
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	"Box.h"
 	<iostream>
 	<allegro5/allegro.h>
@@ -31,12 +52,17 @@
 	<allegro5/allegro_ttf.h>
 	<vector>
 
+<<<<<<< HEAD
 1443316622 source:/home/segebre/Desktop/hackathon2015/Enemy.cpp
+=======
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Enemy.cpp
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	"Enemy.h"
 	"obstaculos.h"
 	<vector>
 	"Box.h"
 
+<<<<<<< HEAD
 1443312020 /home/segebre/Desktop/hackathon2015/Enemy.h
 	"obstaculos.h"
 
@@ -52,10 +78,26 @@
 	"obstaculos.h"
 
 1442275946 source:/home/segebre/Desktop/hackathon2015/FloatingObs.cpp
+=======
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Enemy.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Entidad.cpp
+	"Entidad.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/FireBarrier.cpp
+	"FireBarrier.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/FireBarrier.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/FloatingObs.cpp
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	"FloatingObs.h"
 	"obstaculos.h"
 	"Box.h"
 
+<<<<<<< HEAD
 1442275946 /home/segebre/Desktop/hackathon2015/FloatingObs.h
 	"obstaculos.h"
 
@@ -283,6 +325,42 @@
 	"obstaculos.h"
 	<vector>
 	"Box.h"
+=======
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/FloatingObs.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/GroundBarrier.cpp
+	"GroundBarrier.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/GroundBarrier.h
+	"obstaculos.h"
+
+1443414628 source:/home/alejo/Documents/ProyectoProgra3-2/Highscores.cpp
+	"Highscores.h"
+
+1443414628 /home/alejo/Documents/ProyectoProgra3-2/Highscores.h
+	<map>
+	<utility>
+	<iostream>
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/lives.cpp
+	"lives.h"
+	"obstaculos.h"
+	"Box.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/lives.h
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/obstaculos.cpp
+	"obstaculos.h"
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Personaje.cpp
+	"Personaje.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/Personaje.h
+	"Box.h"
+	"Entidad.h"
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"
@@ -291,6 +369,7 @@
 	<allegro5/allegro_acodec.h>
 	<allegro5/allegro_font.h>
 	<allegro5/allegro_ttf.h>
+<<<<<<< HEAD
 
 1443395024 /home/edgar/Desktop/ProyectoDEfinitivo/ProyectoProgra3-2/Clean.h
 	"obstaculos.h"
@@ -517,6 +596,18 @@
 	"lives.h"
 	"obstaculos.h"
 	"Box.h"
+=======
+	<vector>
+	<map>
+
+1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/WaterBarrier.cpp
+	"WaterBarrier.h"
+
+1443410257 /home/alejo/Documents/ProyectoProgra3-2/WaterBarrier.h
+	"obstaculos.h"
+
+1443421447 source:/home/alejo/Documents/ProyectoProgra3-2/main.cpp
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"
@@ -538,6 +629,7 @@
 	"GroundBarrier.h"
 	<unistd.h>
 	<sstream>
+<<<<<<< HEAD
 	<map>
 	<utility>
 	<iostream>
@@ -687,9 +779,14 @@
 
 1443412434 source:/home/jonathan/Downloads/ProyectoProgra3-2-master/Highscores.cpp
 	"Highscores.h"
+=======
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447
 
 1443410257 /home/alejo/Documents/ProyectoProgra3-2/coins.h
 	"obstaculos.h"
 
+<<<<<<< HEAD
 1443410257 source:/home/alejo/Documents/ProyectoProgra3-2/Highscores.cpp
 
+=======
+>>>>>>> d11a8401db8b7211079041f3bd1f758e350e2447

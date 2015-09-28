@@ -295,6 +295,14 @@ int main()
         {
             if(restart)
             {
+                for(vector<Entidad*>::iterator i = patitos.begin(); i != patitos.end(); i++)
+                {
+                    if(i != patitos.begin())
+                        patitos.erase(i);
+                }
+                nivel = 1;
+                lvlup = 1;
+                restart = 0;
 
             }
 

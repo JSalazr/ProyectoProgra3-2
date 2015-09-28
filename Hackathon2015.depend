@@ -325,7 +325,7 @@
 1443395216 /home/segebre/Desktop/ProyectoProgra3/FireBarrier.h
 	"obstaculos.h"
 
-1443395769 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
+1443399598 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"
@@ -343,6 +343,7 @@
 	"Enemy.h"
 	"WaterBarrier.h"
 	"FireBarrier.h"
+	"GroundBarrier.h"
 	<unistd.h>
 	<sstream>
 

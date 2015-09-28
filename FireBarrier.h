@@ -11,9 +11,6 @@ class FireBarrier : public Obstaculos
         void draw();
         FireBarrier();
         virtual ~FireBarrier();
-//        void act();
-//        void draw();
-//        double velo;
     protected:
     private:
 };

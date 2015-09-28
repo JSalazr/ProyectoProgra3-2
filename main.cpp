@@ -533,29 +533,39 @@ int main()
                 if((*i) != personaje && collision((*i), personaje))
                 {
                     //al_reverse_samples(1);
-                    al_play_sample_instance(yeyInstance);
+                    //al_play_sample_instance(yeyInstance);
                     if((*i)->codigo == 1)
                     {
                         if(!(personaje->tipoActual == RED || personaje->tipoActual == REDD || personaje->tipoActual == REDI))
+                        {
                             al_play_sample_instance(loseInstance);
                             cout<<"perdiste"<<endl;
+                        }
                     }
                     else if((*i)->codigo == 2)
                     {
                         if(!(personaje->tipoActual == GREEN || personaje->tipoActual == GREEND || personaje->tipoActual == GREENI))
+                        {
                             al_play_sample_instance(loseInstance);
                             cout<<"perdiste"<<endl;
+                        }
                     }
                     else if((*i)->codigo == 3)
                     {
                         if(!(personaje->tipoActual == BLUE || personaje->tipoActual == BLUED || personaje->tipoActual == BLUEI))
+                        {
                             al_play_sample_instance(loseInstance);
                             cout<<"perdiste"<<endl;
+                        }
+
                             //patitos.erase(i);
                     }
                     else
+                    {
                         al_play_sample_instance(loseInstance);
                         cout<<"perdiste"<<endl;
+                    }
+
                 }
                  //cout<<(&(*i)->codigo)<<endl;
 

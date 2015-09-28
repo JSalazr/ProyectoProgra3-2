@@ -219,10 +219,10 @@ void menuin(){
     }
 
     if(menuopt==1){
-        al_draw_bitmap(btnplay1, 190, 200, 100);
-        al_draw_bitmap(btnscore, 190, 350, 100);
-        al_draw_bitmap(btninst, 190, 500, 100);
-        al_draw_bitmap(btnexit, 190, 550, 100);
+        al_draw_bitmap(btnplay1, 190, 390, 100);
+        al_draw_bitmap(btnscore, 140, 530, 100);
+        al_draw_bitmap(btninst, 140, 660, 100);
+        al_draw_bitmap(btnexit, 190, 790, 100);
 
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -232,10 +232,10 @@ void menuin(){
 
     }
     else if(menuopt==2){
-        al_draw_bitmap(btnplay, 190, 200, 100);
-        al_draw_bitmap(btnscore1, 190,350, 100);
-        al_draw_bitmap(btninst, 190, 500, 100);
-        al_draw_bitmap(btnexit, 190, 550, 100);
+        al_draw_bitmap(btnplay, 190, 390, 100);
+        al_draw_bitmap(btnscore1, 140, 530, 100);
+        al_draw_bitmap(btninst, 140, 660, 100);
+        al_draw_bitmap(btnexit, 190, 790, 100);
          if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
 
@@ -246,10 +246,10 @@ void menuin(){
 
      }
      else if(menuopt==3){
-        al_draw_bitmap(btnplay, 190, 200, 100);
-        al_draw_bitmap(btnscore, 190,350, 100);
-        al_draw_bitmap(btninst1, 190, 500, 100);
-        al_draw_bitmap(btnexit, 190, 550, 100);
+        al_draw_bitmap(btnplay, 190, 390, 100);
+        al_draw_bitmap(btnscore, 140, 530, 100);
+        al_draw_bitmap(btninst1, 140, 660, 100);
+        al_draw_bitmap(btnexit, 190, 790, 100);
          if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
 
@@ -259,10 +259,10 @@ void menuin(){
 
      }
     else if(menuopt==4){
-        al_draw_bitmap(btnplay, 190, 200, 100);
-        al_draw_bitmap(btnscore, 190, 350, 100);
-        al_draw_bitmap(btninst, 190, 500, 100);
-        al_draw_bitmap(btnexit1, 190, 550, 100);
+        al_draw_bitmap(btnplay, 190, 390, 100);
+        al_draw_bitmap(btnscore, 140, 530, 100);
+        al_draw_bitmap(btninst, 140, 660, 100);
+        al_draw_bitmap(btnexit1, 190, 790, 100);
     }
 
 

@@ -2,8 +2,6 @@
 
 Highscores::Highscores()
 {
-
-
 }
 
 Highscores::~Highscores()

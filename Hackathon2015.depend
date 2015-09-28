@@ -399,7 +399,7 @@
 1443395216 /home/segebre/Desktop/ProyectoProgra3/FireBarrier.h
 	"obstaculos.h"
 
-1443404814 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
+1443406823 source:/home/segebre/Desktop/ProyectoProgra3/main.cpp
 	<iostream>
 	<allegro5/allegro.h>
 	"allegro5/allegro_image.h"

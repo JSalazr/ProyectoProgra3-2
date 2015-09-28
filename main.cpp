@@ -263,6 +263,11 @@ void menuin(){
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
         al_draw_bitmap(btnexit1, 190, 790, 100);
+
+        if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
+        {
+            exit(1);
+        }
     }
 
 

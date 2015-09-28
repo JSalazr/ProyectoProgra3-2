@@ -48,6 +48,8 @@ ALLEGRO_BITMAP  *btnscore   = NULL;
 ALLEGRO_BITMAP  *btnscore1   = NULL;
 ALLEGRO_BITMAP  *btninst   = NULL;
 ALLEGRO_BITMAP  *btninst1   = NULL;
+ALLEGRO_BITMAP  *btnabout   = NULL;
+ALLEGRO_BITMAP  *btnabout1  = NULL;
 ALLEGRO_BITMAP  *instrucciones   = NULL;
 ALLEGRO_BITMAP  *scores_s   = NULL;
 ALLEGRO_SAMPLE* optionSound = NULL;
@@ -212,7 +214,7 @@ void menuin(){
     {
         //al_play_sample_instance(optionSoundInstance);
         menuopt++;
-        if(menuopt>5)
+        if(menuopt>6)
         {
             //al_play_sample_instance(optionSoundInstance);
             menuopt=2;
@@ -225,7 +227,7 @@ void menuin(){
         if(menuopt<1)
         {
             //al_play_sample_instance(optionSoundInstance);
-            menuopt=4;
+            menuopt=5;
         }
         //al_play_sample_instance(optionSoundInstance);
     }
@@ -234,7 +236,8 @@ void menuin(){
         al_draw_bitmap(btnplay1, 190, 390, 100);
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
-        al_draw_bitmap(btnexit, 200, 790, 100);
+        al_draw_bitmap(btnexit, 200, 760, 100);
+        al_draw_bitmap(btnabout, 200, 900, 100);
         //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -246,7 +249,8 @@ void menuin(){
         al_draw_bitmap(btnplay, 180, 375, 100);
         al_draw_bitmap(btnscore1, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
-        al_draw_bitmap(btnexit, 200, 790, 100);
+        al_draw_bitmap(btnexit, 200, 760, 100);
+          al_draw_bitmap(btnabout, 200, 900, 100);
         //al_play_sample_instance(optionSoundInstance);
          if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -260,7 +264,8 @@ void menuin(){
         al_draw_bitmap(btnplay, 180, 375, 100);
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst1, 140, 660, 100);
-        al_draw_bitmap(btnexit, 200, 790, 100);
+        al_draw_bitmap(btnexit, 200, 760, 100);
+          al_draw_bitmap(btnabout, 200, 900, 100);
         //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
@@ -269,16 +274,26 @@ void menuin(){
         }
 
      }
-    else if(menuopt==4){
+     else if(menuopt==4){
         al_draw_bitmap(btnplay, 180, 375, 100);
         al_draw_bitmap(btnscore, 140, 530, 100);
         al_draw_bitmap(btninst, 140, 660, 100);
-        al_draw_bitmap(btnexit1, 200, 790, 100);
+        al_draw_bitmap(btnexit1, 200, 760, 100);
+          al_draw_bitmap(btnabout, 200, 900, 100);
         //al_play_sample_instance(optionSoundInstance);
         if(ev.keyboard.keycode == ALLEGRO_KEY_ENTER)
         {
             exit(1);
         }
+    }
+    else if(menuopt==5){
+        al_draw_bitmap(btnplay, 180, 375, 100);
+        al_draw_bitmap(btnscore, 140, 530, 100);
+        al_draw_bitmap(btninst, 140, 660, 100);
+        al_draw_bitmap(btnexit, 200, 760, 100);
+        al_draw_bitmap(btnabout1, 200, 900, 100);
+        //al_play_sample_instance(optionSoundInstance);
+
     }
 
 
@@ -345,6 +360,8 @@ int main()
     btnscore1 = al_load_bitmap("resources/score1.png");
     btninst = al_load_bitmap("resources/instructions.png");
     btninst1 = al_load_bitmap("resources/insctructions1.png");
+    btnabout = al_load_bitmap("resources/about.png");
+    btnabout1 = al_load_bitmap("resources/about1.png");
     instrucciones = al_load_bitmap("resources/instrucciones.png");
     scores_s = al_load_bitmap("resources/scores_s.png");
     optionSound = al_load_sample("resources/option.wav");

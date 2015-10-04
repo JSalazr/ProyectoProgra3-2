@@ -690,7 +690,7 @@ int main()
 //        personaje->act();
 //        personaje->draw();
             bg1-=moveSpeedB1;
-            bg2-=moveSpeedB2;
+            bg2-=moveSpeedB1;
             if(bg1<=-2560)
                 bg1=0;
             if(bg2<=-2560)
